@@ -18,13 +18,10 @@ jobs:
       # Step 2: Install dependencies
       - run: npm ci
 
-      # Step 3: Build the Next.js app
+      # Step 3: Build the app (Next.js will handle static export)
       - run: npm run build
 
-      # Step 4: Export static files (needed for static hosting)
-      - run: npm run export
-
-      # Step 5: Deploy to Firebase Hosting
+      # Step 4: Deploy to Firebase Hosting
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
