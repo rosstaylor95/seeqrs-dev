@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export', // Enable static export
+  output: 'export', // Enables static export
 };
 
-module.exports = nextConfig;
+export default nextConfig; // Use 'export default' for ES modules
