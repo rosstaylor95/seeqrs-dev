@@ -5,6 +5,9 @@ on:
     branches:
       - main
 
+permissions: # Grant write permissions to GitHub Actions
+  contents: write
+
 jobs:
   sync-lock-file:
     runs-on: ubuntu-latest
