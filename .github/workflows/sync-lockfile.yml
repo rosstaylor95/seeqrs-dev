@@ -1,15 +1,15 @@
-name: Sync package-lock.json
+name: Sync Dependencies
 
 on:
   push:
     branches:
       - main
 
-permissions: # Grant write permissions to GitHub Actions
+permissions:
   contents: write
 
 jobs:
-  sync-lock-file:
+  update-lockfile:
     runs-on: ubuntu-latest
 
     steps:
@@ -21,11 +21,16 @@ jobs:
         with:
           node-version: '18'
 
-      - name: Install dependencies and update package-lock.json
+      - name: Install dependencies
         run: |
           npm install
+
+      - name: Check for lockfile changes
+        run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          git add package-lock.json
-          git commit -m "Update package-lock.json to sync with package.json"
-          git push
+          git diff --exit-code package-lock.json || (
+            git add package-lock.json &&
+            git commit -m "Update package-lock.json to sync with package.json" &&
+            git push
+          )
