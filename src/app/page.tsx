@@ -11,7 +11,7 @@ export default function Home() {
 
   const fetchCafes = async () => {
     try {
-      const q = query(collection(db, "businesses"), where("type", "==", "cafe"));
+      const q = query(collection(db, "businesses"), where("type", "==", "Cafe"));
       const querySnapshot = await getDocs(q);
       const cafesList: string[] = [];
       querySnapshot.forEach((doc) => {
