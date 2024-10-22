@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState } from "react";
@@ -47,8 +48,9 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-orange-500 flex flex-col items-center justify-center p-8 font-sans">
+    <div className="min-h-screen bg-orange-500 flex flex-col items-center justify-center p-8">
       <main className="bg-white rounded-lg p-6 shadow-lg w-full max-w-md text-center">
+        {/* Logo */}
         <Image
           className="mb-6"
           src="https://nextjs.org/icons/next.svg"
@@ -57,17 +59,22 @@ export default function Home() {
           height={38}
           priority
         />
-        <h1 className="text-3xl font-bold text-gray-800 mb-4">See Cafes & Restaurants</h1>
-        
-        <div className="flex justify-center gap-4 mb-8">
+
+        {/* Title */}
+        <h1 className="text-2xl font-semibold text-gray-800 mb-4">
+          See Cafes & Restaurants
+        </h1>
+
+        {/* Buttons */}
+        <div className="flex justify-center gap-4 mb-6">
           <button
-            className="bg-aqua-500 hover:bg-aqua-600 text-white font-bold py-2 px-6 rounded-full transition-colors duration-300"
+            className="bg-[#00FFFF] hover:bg-[#00CED1] text-white font-bold py-2 px-6 rounded-full transition-colors duration-300"
             onClick={fetchCafes}
           >
             Cafes
           </button>
           <button
-            className="bg-aqua-500 hover:bg-aqua-600 text-white font-bold py-2 px-6 rounded-full transition-colors duration-300"
+            className="bg-[#00FFFF] hover:bg-[#00CED1] text-white font-bold py-2 px-6 rounded-full transition-colors duration-300"
             onClick={fetchRestaurants}
           >
             Restaurants
