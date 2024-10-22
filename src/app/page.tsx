@@ -7,9 +7,9 @@ import Image from "next/image";
 
 export default function Home() {
   const [cafes, setCafes] = useState<string[]>([]);
-  const [restaurants, setRestaurants] = useState<string[]>([]); // New state for restaurants
+  const [restaurants, setRestaurants] = useState<string[]>([]);
   const [viewCafes, setViewCafes] = useState<boolean>(false);
-  const [viewRestaurants, setViewRestaurants] = useState<boolean>(false); // New state for view control
+  const [viewRestaurants, setViewRestaurants] = useState<boolean>(false);
 
   const fetchCafes = async () => {
     try {
@@ -47,29 +47,28 @@ export default function Home() {
   };
 
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
+    <div className="min-h-screen bg-orange-500 flex flex-col items-center justify-center p-8 font-sans">
+      <main className="bg-white rounded-lg p-6 shadow-lg w-full max-w-md text-center">
         <Image
-          className="dark:invert"
+          className="mb-6"
           src="https://nextjs.org/icons/next.svg"
           alt="Next.js logo"
           width={180}
           height={38}
           priority
         />
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          {/* Cafes Button */}
+        <h1 className="text-3xl font-bold text-gray-800 mb-4">See Cafes & Restaurants</h1>
+        
+        <div className="flex justify-center gap-4 mb-8">
           <button
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
+            className="bg-aqua-500 hover:bg-aqua-600 text-white font-bold py-2 px-6 rounded-full transition-colors duration-300"
             onClick={fetchCafes}
           >
             Cafes
           </button>
-
-          {/* Restaurants Button */}
           <button
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            onClick={fetchRestaurants} // Fetch restaurants on click
+            className="bg-aqua-500 hover:bg-aqua-600 text-white font-bold py-2 px-6 rounded-full transition-colors duration-300"
+            onClick={fetchRestaurants}
           >
             Restaurants
           </button>
@@ -77,7 +76,7 @@ export default function Home() {
 
         {/* Displaying the list of cafes */}
         {viewCafes && (
-          <ul className="list-disc list-inside mt-8">
+          <ul className="text-left list-disc list-inside text-lg text-gray-700">
             {cafes.map((cafe, index) => (
               <li key={index}>{cafe}</li>
             ))}
@@ -86,7 +85,7 @@ export default function Home() {
 
         {/* Displaying the list of restaurants */}
         {viewRestaurants && (
-          <ul className="list-disc list-inside mt-8">
+          <ul className="text-left list-disc list-inside text-lg text-gray-700">
             {restaurants.map((restaurant, index) => (
               <li key={index}>{restaurant}</li>
             ))}
