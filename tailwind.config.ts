@@ -11,9 +11,18 @@ const config: Config = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        // Custom colors for orange background and aqua buttons
+        orange: {
+          500: "#f97316", // Customize this value to match the orange you want
+        },
+        aqua: {
+          500: "#00FFFF", // Aqua shade for the buttons
+          600: "#00CED1", // Darker shade on hover
+        },
       },
     },
   },
   plugins: [],
 };
+
 export default config;
